@@ -44,7 +44,7 @@ class EmailManager {
             <p>Codigo de confirmacion: </p>
             <strong> ${token} </strong>
             <p>Este codigo expirara en una hora</p>
-            <a href="https://ecommerce-nodejs-mongodb-handlebars.onrender.com//password">Restablecer contraseña</a>
+            <a href="https://ecommerce-nodejs-mongodb-handlebars.onrender.com/password">Restablecer contraseña</a>
         `,
       };
       await this.transporter.sendMail(Opt);
