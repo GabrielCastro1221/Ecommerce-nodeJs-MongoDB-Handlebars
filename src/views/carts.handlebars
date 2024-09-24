@@ -1,0 +1,43 @@
+<div class="container cart-wrapper">
+    <h1 class="titles">Carrito de Compras</h1>
+    <div class="table-responsive-sm">
+        {{#each productos}}
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td>
+                        <h3 class="fs-6 fw-bold py-5" style="margin-left: 100px;">{{this.product.title}}</h3>
+                    </td>
+                    <td>
+                        <h4 class=" py-5 fs-6 fw-bold">Cantidad:
+                            <span class="text-secondary fw-bold">{{this.quantity}}</span>
+                        </h4>
+                    </td>
+                    <td>
+                        <h4 class=" py-5 fs-6 fw-bold">Precio:
+                            <span class="text-secondary fw-bold">${{this.product.price}}</span>
+                        </h4>
+                    </td>
+                    <td>
+                        <button onclick="deleteProdFromUser('{{this.cartId}}', '{{this.product._id}}')"
+                            class="btn-card-danger" style="margin-top: 40px;">Eliminar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        {{/each}}
+        <div class="buttons-cart">
+            <h3 class="total-price">Precio Total: $
+                <span class="text-secondary">{{totalPurchase}}</span>
+            </h3>
+            <div class="btns-cart">
+                <a href="/products" class="btn-card-ok">Seguir comprando</a>
+                <form action="/api/carts/{{cartId}}/purchase" method="POST">
+                    <button type="submit" class="btn-card-ok">Realizar compra</button>
+                </form>
+                <button onclick="emptyUserCart('{{cartId}}')" class="btn-card-danger">Vaciar Carrito</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/cart.js"></script>

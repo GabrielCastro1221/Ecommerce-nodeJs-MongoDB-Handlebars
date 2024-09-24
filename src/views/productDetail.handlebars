@@ -1,0 +1,47 @@
+<div class="d-flex align-items-center justify-content-center mt-5 py-5">
+    <a href="/products" class="text-decoration-none text-success text-uppercase fw-bold fs-6">Volver a la tienda</a>
+</div>
+<div class="container d-flex align-items-center justify-content-center gap-4">
+    {{#each product}}
+    <div>
+        <img src="{{this.thumbnail}}" alt="{{this.title}}" title="{{this.title}}" class="img-fluid" />
+    </div>
+    {{/each}}
+    <div class="mt-3 rounded py-2 px-2 h-100 w-100">
+        <div>
+            {{#each product}}
+            <h3 class="text-dark mb-3 fw-bold text-uppercase mb-4">{{title}}</h3>
+            {{/each}}
+        </div>
+        <div class="d-flex gap-1">
+            <strong class="fs-6 text-uppercase">Categoria: </strong>
+            {{#each product}}
+            <h5 class="text-dark mb-4">{{category}}</h5>
+            {{/each}}
+        </div>
+        <div class="d-flex gap-1">
+            <strong class="fs-6 text-uppercase">Id del vendedor: </strong>
+            {{#each product}}
+            <h5 class="text-dark mb-4">{{owner}}</h5>
+            {{/each}}
+        </div>
+        <div class="d-flex gap-1">
+            <strong class="fs-6 text-uppercase">Unidades disponibles: </strong>
+            {{#each product}}
+            <h5 class="text-dark mb-4">{{stock}}</h5>
+            {{/each}}
+        </div>
+        <div class="d-flex">
+            <strong class="fs-6 text-uppercase">Precio: $</strong>
+            {{#each product}}
+            <h5 class="text-dark mb-4">{{price}}</h5>
+            {{/each}}
+        </div>
+        <div>
+            <strong class="fs-6 text-uppercase">Detalle del producto:</strong>
+            {{#each product}}
+            <p class="text-dark fs-6 text-secondary">{{description}}</p>
+            {{/each}}
+        </div>
+    </div>
+</div>

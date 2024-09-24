@@ -1,0 +1,36 @@
+<div class="register-con">
+  <form action="/api/users/register" method="POST" class="container register-form">
+    <h1 class="auth-title">Crear Cuenta</h1>
+    {{#if userRegisterError}}
+    <div class="alert alert-danger" role="alert">
+      {{userRegisterError}}
+    </div>
+    {{/if}}
+    {{#if RegisterError}}
+    <div class="alert alert-danger" role="alert">
+      {{RegisterError}}
+    </div>
+    {{/if}}
+    <div class="form-item-register">
+      <input type="text" name="first_name" id="first_name" placeholder="Ingresa tu nombre">
+    </div>
+    <div class="form-item-register">
+      <input type="text" name="last_name" id="last_name" placeholder="Ingresa tu apellido">
+    </div>
+    <div class="form-item-register">
+      <input type="number" name="age" id="age" placeholder="Ingresa tu edad">
+    </div>
+    <div class="form-item-register">
+      <input type="email" name="email" id="email" placeholder="Ingresa tu correo electronico">
+    </div>
+    <div class="form-item-register">
+      <input type="password" name="password" id="password" placeholder="Ingresa tu contraseña">
+    </div>
+    <button type="submit" class="btn-ok">Registrase</button>
+    <div class="account">
+      <p>Ya tenes cuenta?
+        <a href="/">Ingresa</a>
+      </p>
+    </div>
+  </form>
+</div>

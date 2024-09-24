@@ -1,0 +1,44 @@
+<div class="real-con"> 
+<div class="container-fluid modal-wrapper">
+    <h2 class="titles crear-prod">Administrador de productos</h2>
+    <button type="button" class="btn-card-ok text-uppercase fw-bold" data-bs-toggle="modal"
+        data-bs-target="#create-product-modal">
+        Crear Producto
+    </button>
+    <div class="modal fade" id="create-product-modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="auth-title">Crear Producto</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container createForm-wrapper">
+                        <form>
+                            <input type="text" id="title" placeholder="Ingresa el nombre del producto">
+                            <input type="text" id="description" placeholder="Ingresa la descripcion del producto">
+                            <input type="number" id="price" placeholder="Ingresa el precio del producto">
+                            <input type="text" id="img" placeholder="Ingresa el link de la imagen del producto">
+                            <input type="text" id="code" placeholder="Ingresa el codigo del producto">
+                            <input type="number" id="stock" placeholder="Ingrese las unidades disponibles del producto">
+                            <input type="text" id="category" placeholder="Ingrese la categoria del producto">
+                            <select id="status">
+                                <option value="true"> Activo </option>
+                                <option value="false"> Inactivo </option>
+                            </select>
+                            <button type="button" class="btn-ok" id="btnEnviar">Crear</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="real-con">
+    <div class="container" id="product-list"></div>
+</div>
+
+<script src="https://cdn.socket.io/4.7.4/socket.io.min.js"></script>
+<script src="js/realtime.js"></script>

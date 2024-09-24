@@ -1,0 +1,269 @@
+paths:
+  /api/products:
+    get:
+      summary: Obtener todos los productos
+      tags:
+        - Productos
+      responses:
+        "200":
+          description: "Productos obtenidos existosamente"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#components/schemas/Productos"
+        "500":
+          description: Error al obtener los productos
+    post:
+      summary: Crear un producto
+      tags:
+        - Productos
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#components/requestBodies/createProduct"
+      responses:
+        "200":
+          description: Producto creado exitosamente
+        "500":
+          description: Error al crear Producto
+  /api/products/{pid}:
+    get:
+      summary: Obtener productos por ID
+      tags:
+        - Productos
+      parameters:
+        - name: pid
+          in: path
+          required: true
+          description: ID Producto
+          schema:
+            type: string
+      responses:
+        "200":
+          description: producto encontrado
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#components/schemas/Productos"
+        "500":
+          description: Error al obtener los productos
+    put:
+      summary: Actualizar producto
+      description: Actualiza los detalles de un producto específico.
+      tags:
+        - Productos
+      parameters:
+        - in: path
+          name: pid
+          required: true
+          schema:
+            type: string
+          description: ID del producto
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: Nombre del producto
+                description:
+                  type: string
+                  description: Descripcion del prodcuto
+                price:
+                  type: number
+                  descripcion: Precio del producto
+                img:
+                  type: string
+                  description: Imagen del producto
+                code:
+                  type: string
+                  description: Codigo del producto
+                stock:
+                  type: number
+                  description: stock del producto
+                category:
+                  type: string
+                  description: Categoria del producto
+                status:
+                  type: boolean
+                  description: Esatdo del producto
+                thumbnail:
+                  type: array
+                  description: thumbnail del producto
+                owner:
+                  type: ObjectId
+                  description: Propietario del producto
+      responses:
+        "200":
+          description: Producto actualizado exitosamente
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                title:
+                  type: string
+                  description: Nombre del producto
+                description:
+                  type: string
+                  description: Descripcion del prodcuto
+                price:
+                  type: number
+                  descripcion: Precio del producto
+                img:
+                  type: string
+                  description: Imagen del producto
+                code:
+                  type: string
+                  description: Codigo del producto
+                stock:
+                  type: number
+                  description: stock del producto
+                category:
+                  type: string
+                  description: Categoria del producto
+                status:
+                  type: boolean
+                  description: Esatdo del producto
+                thumbnail:
+                  type: array
+                  description: thumbnail del producto
+                owner:
+                  type: ObjectId
+                  description: Propietario del producto
+        "500":
+          description: Error al actualizar el producto
+          content:
+            text/plain:
+              schema:
+                type: string
+    delete:
+      summary: Eliminar producto
+      description: Elimina un producto específico.
+      tags:
+        - Productos
+      parameters:
+        - in: path
+          name: pid
+          required: true
+          schema:
+            type: string
+          description: ID del producto
+      responses:
+        "200":
+          description: Producto eliminado exitosamente
+          content:
+            application/json:
+              schema:
+                type: object
+        "500":
+          description: Error al eliminar el producto
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: Error al eliminar el producto
+components:
+  schemas:
+    Productos:
+      type: object
+      properties:
+        _id:
+          type: ObjectId
+          description: ID autogenerado por mongoDB
+        title:
+          type: string
+          description: Nombre del producto
+        description:
+          type: string
+          description: Descripcion del prodcuto
+        price:
+          type: number
+          descripcion: Precio del producto
+        img:
+          type: string
+          description: Imagen del producto
+        code:
+          type: string
+          description: Codigo del producto
+        stock:
+          type: number
+          description: stock del producto
+        category:
+          type: string
+          description: Categoria del producto
+        status:
+          type: boolean
+          description: Esatdo del producto
+        thumbnail:
+          type: array
+          description: thumbnail del producto
+        owner:
+          type: ObjectId
+          description: Propietario del producto
+      example:
+        _id: ObjectId("123456879")
+        title: Creature kills
+        description: "SkateBoard creature 8.50"
+        price: 320000
+        img: imagen
+        code: skate-01
+        stock: 45
+        category: SkateBoard
+        status: true
+        thumbnail: thumbnail
+        owner: ObjectId("12310256")
+  requestBodies:
+    createProduct:
+      type: object
+      properties:
+        title:
+          type: string
+          description: Nombre del producto
+        description:
+          type: string
+          description: Descripcion del prodcuto
+        price:
+          type: number
+          descripcion: Precio del producto
+        img:
+          type: string
+          description: Imagen del producto
+        code:
+          type: string
+          description: Codigo del producto
+        stock:
+          type: number
+          description: stock del producto
+        category:
+          type: string
+          description: Categoria del producto
+        status:
+          type: boolean
+          description: Esatdo del producto
+        thumbnail:
+          type: array
+          description: thumbnail del producto
+        owner:
+          type: ObjectId
+          description: Propietario del producto
+      example:
+        title: Creature kills
+        description: "SkateBoard creature 8.50"
+        price: 320000
+        img: imagen
+        code: skate-01
+        stock: 45
+        category: SkateBoard
+        status: true
+        thumbnail: thumbnail
+        owner: ObjectId("12310256")

@@ -1,0 +1,181 @@
+{{#if this.isUser}}
+<nav class="navbar fixed-top border border-bottom shadow-sm">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/home"><img src="/img/logoNav.png" alt="logo" width="320px" height="70px"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+      aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel"><a class="navbar-brand" href="/home"><img
+              src="/img/logoNav.png" alt="logo" width="180px" height="70px"></a></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a class="nav-link fw-bold fs-6 active" aria-current="page" href="/home">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-bold fs-6" href="/products">Tienda</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link fw-bold dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              {{user.name}}
+              {{user.surName}}
+            </a>
+            <ul class="dropdown-menu">
+              <li> <a class="dropdown-item fw-bold text-upercase text-center fs-6" href="/api/users/profile">
+                  Mi perfil
+                </a></li>
+              <li><a class="dropdown-item fw-bold text-upercase text-center fs-6" href="/chat">Chat Comunitario</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li>
+                <form action="/api/users/logout" method="POST">
+                  <button type="submit"
+                    class="dropdown-item fw-bold text-upercase text-center text-danger fs-6">Salir</button>
+                </form>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+{{/if}}
+{{#if this.isAdmin}}
+<nav class="navbar fixed-top border border-bottom shadow-sm">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/api/users/profile"><img src="/img/logoNav.png" alt="logo" width="300px"
+        height="70px"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+      aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel"><a class="navbar-brand" href="/api/users/profile"><img
+              src="/img/logoNav.png" alt="logo" width="180px" height="70px"></a></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a class="nav-link fw-bold fs-6 active" aria-current="page" href="/realtimeproducts">Administrador de
+              Productos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-bold fs-6" href="/admin-users">Administrador de Usuarios</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle fw-bold fs-6" href="#" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              {{user.name}}
+              {{user.surName}}
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item fw-bold text-upercase text-center fs-6" href="/api/users/profile">Mi
+                  Perfil</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li>
+                <form action="/api/users/logout" method="POST">
+                  <button type="submit"
+                    class="dropdown-item fw-bold text-upercase text-center text-danger fs-6">Salir</button>
+                </form>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+{{/if}}
+{{#if this.isPremium}}
+<nav class="navbar fixed-top border border-bottom shadow-sm">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/home"><img src="/img/logoNav.png" alt="logo" width="300px" height="70px"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+      aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel"><a class="navbar-brand" href="/home"><img
+              src="/img/logoNav.png" alt="logo" width="180px" height="70px"></a></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a class="nav-link fw-bold fs-6 active" aria-current="page" href="/home">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-bold fs-6" href="/products">Tienda</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link fw-bold dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              {{user.name}}
+              {{user.surName}}
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a class="dropdown-item fw-bold text-upercase text-center fs-6" href="/api/users/profile">
+                  Mi perfil
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item fw-bold text-upercase text-center fs-6" href="/chat">Chat Comunitario</a>
+              </li>
+              <li>
+                <a class="dropdown-item fw-bold text-upercase text-center fs-6" href="/realtimeproducts">
+                  Administrador de Productos
+                </a>
+              </li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li>
+                <form action="/api/users/logout" method="POST">
+                  <button type="submit"
+                    class="dropdown-item fw-bold text-upercase text-center text-danger fs-6">Salir</button>
+                </form>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+{{/if}}
+{{#unless this.isUser}}
+{{#unless this.isAdmin}}
+{{#unless this.isPremium}}
+<nav class="navbar navbar-expand-lg border-bottom shadow-sm">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03"
+      aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="/home"><img src="/img/logoNav.png" alt="logo" width="300px" height="70px"></a>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+      <ul class="navbar-nav mx-auto mt-3 mb-2 mb-lg-0"></ul>
+      <form class="d-flex gap-3" role="search">
+        <a href="/" class="btn-card-ok">Ingresar</a>
+        <a href="/register" class="btn-card-ok">Registrarse</a>
+      </form>
+    </div>
+  </div>
+</nav>
+{{/unless}}
+{{/unless}}
+{{/unless}}

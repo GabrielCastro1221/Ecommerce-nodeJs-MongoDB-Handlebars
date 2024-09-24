@@ -1,0 +1,70 @@
+<div class="ticket-wrapper">
+    <h1 class="titles">Gracias por preferir nuestra tienda</h1>
+    <h3 class="subtitles">Te hemos enviado un email con los datos de tu compra.</h3>
+    <div class="item-ticket-content">
+        <div class="mb-3">
+            <strong>Email del comprador:</strong>
+        </div>
+        {{#if user}}
+        <p title="Id comprador" class="text-center">{{user.email}}</p>
+        {{/if}}
+    </div>
+
+    <div class="item-ticket-content">
+        <div class="mb-3">
+            <strong>Orden de compra numero: </strong>
+        </div>
+        {{#each ticket}}
+        <p title="Orden de compra" class="text-center">{{code}}</p>
+        {{/each}}
+    </div>
+    <div class="item-ticket-content">
+        <div class="mb-3">
+            <strong>La compra fue realizada en la fecha: </strong>
+        </div>
+        {{#each ticket}}
+        <p title="Orden de compra" class="text-center">{{purchase_datetime}}</p>
+        {{/each}}
+    </div>
+    <div class="item-ticket-content">
+        <div class="mb-3">
+            <strong>Costo total de la compra: </strong>
+        </div>
+        <span class="mb-3 font-bold">$</span>
+        {{#each ticket}}
+        <p title="Orden de compra" class="text-center">{{amount}}</p>
+        {{/each}}
+    </div>
+
+    <div class="container-fluid wallet-content">
+        <div class="container-fluid cards-wallet-content">
+            <div class="cards-wallet">
+                <div class="logo-wallet">
+                    <img src="https://th.bing.com/th/id/OIP.ERX9_NgWqpNJ39pxL_FmEwHaCZ?rs=1&pid=ImgDetMain"
+                        alt="logo nequi">
+                </div>
+                <p>
+                    Para hacer el pago por la billetera virtual de Bancolombia (NEQUI) acercate a un corresponsal y
+                    decile al cajero que vas a hacer una consignacion al numero de cuenta <span>3146381395</span> a
+                    nombre de <span>Gabriel Castro Ramirez</span> o tambien podes hacer la consignacion por medio de la
+                    App. Una vez hagas la consignacion envianos el comprabante de pago, una vez el pago se aprobado te
+                    solicitaremos los datos de envio.<br> <a class="link-wallet"
+                        href="https://api.whatsapp.com/send/?phone=3146381395">Enviar comprabante de pago</a></p>
+            </div>
+            <div class="cards-wallet">
+                <div class="logo-wallet">
+                    <img src="https://global-uploads.webflow.com/58c5b8748712539d1de79645/5c89c897e1917d9209a762af_davi.png"
+                        alt="logo daviplata">
+                </div>
+                <p>Para hacer el pago por la billetera virtual de Davivienda (DAVIPLATA) acercate a un corresponsal y
+                    decile al cajero que vas a hacer una consignacion al numero de cuenta <span>3146381395</span> a
+                    nombre de <span>Gabriel Castro Ramirez</span> o tambien podes hacer la consignacion por medio de la
+                    App. Una vez hagas la consignacion envianos el comprabante de pago, una vez el pago se aprobado te
+                    solicitaremos los datos de envio.<br> <a class="link-wallet"
+                        href="https://api.whatsapp.com/send/?phone=3146381395">Enviar comprabante de pago</a></p>
+            </div>
+        </div>
+
+
+    </div>
+</div>
