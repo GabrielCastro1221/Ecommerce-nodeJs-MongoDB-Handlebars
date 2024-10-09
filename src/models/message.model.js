@@ -7,4 +7,4 @@ const schema = new mongoose.Schema({
   { timestamps: true }
 );
 
-module.exports = mongoose.model("message", schema);;
+module.exports = mongoose.model("message", schema);
